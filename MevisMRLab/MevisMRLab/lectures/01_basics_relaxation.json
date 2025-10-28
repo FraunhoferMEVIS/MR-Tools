@@ -1,0 +1,45 @@
+{
+  "filter": ["lecture01"],
+  "neg_filter": [],
+  "general_tags": ["variable"],
+  "toolVisibility": {
+    "BlochSim":   true,
+    "Simulation": false,
+    "3DViewer":   true
+  },
+  "toolPreset": {
+    "BlochSim":   "standard",
+    "Simulation": "",
+    "Plot":       "full",
+    "3DViewer":   "standard"
+  },
+  "storePermanently": false,
+  "blocks": [
+    {
+      "name": "rf_090_",
+      "id":   "rf_ns",
+      "properties": {
+        "parameter_units": "metric",
+        "param_desc":       {},
+        "parameters": {
+          "rf_amp": 90.0
+        },
+        "type": "rfpulse",
+        "tags": ["lecture01"]
+      }
+    },
+    {
+      "name": "rf_180_",
+      "id":   "rf_ns",
+      "properties": {
+        "parameter_units": "metric",
+        "param_desc":       {},
+        "parameters": {
+          "rf_amp": 180.0
+        },
+        "type": "rfpulse",
+        "tags": ["lecture01"]
+      }
+    }
+  ]
+}

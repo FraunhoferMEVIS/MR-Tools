@@ -1,0 +1,53 @@
+{
+  "filter": ["lecture02","basic"],
+  "neg_filter": [],
+  "general_tags": ["variable"],
+  "toolVisibility": {
+    "BlochSim":   true,
+    "Simulation": false,
+    "3DViewer":   true
+  },
+  "toolPreset": {
+    "BlochSim":   "standard",
+    "Simulation": "",
+    "Plot":       "sim_ext.",
+    "3DViewer":   "standard"
+  },
+  "storePermanently": false,
+  "blocks": [
+    {
+      "name": "readout",
+      "id":   "epi2D_RO",
+      "properties": {
+        "parameter_units": "metric",
+        "param_desc": {},
+        "parameters": {},
+        "type": "readout",
+        "tags": ["lecture02"]
+      }
+    },    
+	{
+      "name": "full_EPI",
+      "id":   "epi_2D_seq",
+      "properties": {
+        "parameter_units": "metric",
+        "param_desc": {},
+        "parameters": {},
+        "type": "readout",
+        "tags": ["lecture02"]
+      }
+    },
+    {
+      "name": "rf_arb_",
+      "id":   "rf_ns",
+      "properties": {
+        "parameter_units": "metric",
+        "parameters": {
+          "rf_amp": 90.0
+        },
+        "type": "rfpulse",
+        "tags": ["lecture02"]
+      }
+    }
+  ]
+}

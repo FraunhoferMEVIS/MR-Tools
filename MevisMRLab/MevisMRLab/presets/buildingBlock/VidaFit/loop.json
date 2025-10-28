@@ -1,0 +1,39 @@
+{
+    "blueprints": {
+        "Loop": {
+            "id": "Loop",
+            "name": "loop",
+            "properties": {
+                "duration": 0.000,
+                "fname": "buildingBlock\\VidaFit\\loop.svg",
+                "NPhase": 64,
+                "NRead": 64,
+                "param_desc": {
+                    "loopLength": {
+                        "default": 1,
+                        "description": "loop length",
+                        "max": 100,
+                        "min": 0,
+                        "pulseq_unit": "",
+                        "pulseq_value": 1,
+                        "step": 1,
+                        "type": "int",
+                        "unit": ""
+                    }
+                },
+                "parameters": {
+                    "loopLength": 1
+                },
+                "pulseqFile": "",
+                "scannerType": "VidaFit",
+                "tags": [
+                    "template", "structure",
+					"advanced",
+                    "pulseq",
+                    "VidaFit"
+                ],
+                "type": "template"
+            }
+        }
+    }
+}

@@ -1,0 +1,13 @@
+{
+	"filter": ["lecture09","_sliceSelective"],
+	"general_tags": ["variable"],
+	"toolVisibility": {"BlochSim":true,
+						"Simulation":false,
+						"3DViewer":true},
+	"toolPreset": {"BlochSim": "slice_profile",
+					"Simulation":"",
+					"Plot":"sim_ext.",
+					"3DViewer":"slice_profile"},
+    "blocks": [
+  ]
+}

@@ -1,0 +1,13 @@
+{
+	"filter": ["rfpulse","lecture04"],
+	"general_tags": ["variable"],
+	"toolVisibility": {"BlochSim":true,
+						"Simulation":false,
+						"3DViewer":true},
+	"toolPreset": {"BlochSim": "dephasing_z",
+					"Simulation":"",
+					"Plot":"sim_ext.",
+					"3DViewer":"dephasing_z"},
+    "blocks": [
+   ]
+}

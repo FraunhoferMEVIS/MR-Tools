@@ -1,0 +1,83 @@
+{
+	"filter": ["lecture10","structure","variable"],
+	"general_tags": ["variable"],
+	"toolVisibility": {"BlochSim":true,
+						"Simulation":true,
+						"3DViewer":false},
+	"toolPreset": {"BlochSim": "standard",
+					"Simulation":"",
+					"Plot":"sim_ext.",
+					"3DViewer":"standard"},
+  "blocks": [
+    {
+      "name": "adc",
+      "id":   "singleADC",
+      "properties": {
+        "parameter_units": "metric",
+        "parameters": {"gradX_amp":0.3,"gradY_amp":0,"gradZ_amp":0},
+        "type": "readout",
+        "tags": ["lecture10"]
+      }
+    },
+    {
+      "name": "adc_sym",
+      "id":   "singleADC_sym",
+      "properties": {
+        "parameter_units": "metric",
+			"parameters": {
+				"gradX_amp": 8,
+				"gradY_amp": "(seq_loop_counter-seq_loop_length/2)/seq_loop_length*6"
+			},
+		"type": "readout",
+        "tags": ["lecture10"]
+      }
+    },
+		{
+		"name": "grad_x",
+		"id": "gradient",
+		"properties": {
+			"parameter_units": "metric",
+			"parameters": {
+				"gradX_amp": -0.3,"gradY_amp": 0,"gradZ_amp": 0,
+				"grad_flat": 500,"grad_ramp": 200
+			},
+			"type": "preparation",
+			"tags": ["lecture10"]
+		}
+	},
+			{
+		"name": "grad_z",
+		"id": "gradient",
+		"properties": {
+			"parameter_units": "metric",
+			"parameters": {
+				"gradX_amp": 0,"gradY_amp": 0,"gradZ_amp": 10,
+				"grad_flat": 500,"grad_ramp": 200
+			},
+			"type": "preparation",
+			"tags": ["lecture10"]
+		}
+	},
+		{
+		"name": "blip_y",
+		"id": "gradient",
+		"properties": {
+			"parameter_units": "metric",
+			"parameters": {
+				"gradX_amp": 0,"gradY_amp": 0.3,"gradZ_amp": 0,
+				"grad_flat": 0,"grad_ramp": 200
+			},
+			"type": "preparation",
+			"tags": ["lecture10"]
+		}
+	},
+	{
+      "name": "rf",
+      "id":   "rf_ns",
+      "properties": {
+        "type": "rfpulse",
+        "tags": ["lecture10"]
+      }
+    }	
+  ]
+}

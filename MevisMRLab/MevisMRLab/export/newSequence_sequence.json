@@ -1,0 +1,344 @@
+{
+  "name": "newSequence_sequence",
+  "parameters": {
+    "root.LoopInfo": {
+      "inputs": {},
+      "script": "return {}"
+    },
+    "root.PNSPaths": {
+      "inputs": {},
+      "script": "return {}"
+    },
+    "root.RegridTable": {
+      "inputs": {},
+      "script": "return {}"
+    },
+    "root.expo.ImageScaleFactor": {
+      "inputs": {},
+      "script": "return 1.0"
+    },
+    "root.expo.LoopLengthAverage": {
+      "inputs": {
+        "LoopInfo": "root.LoopInfo"
+      },
+      "script": "if not LoopInfo.max_average then\n  return 1\nelse\n  return LoopInfo.max_average\nend"
+    },
+    "root.expo.LoopLengthContrast": {
+      "inputs": {
+        "LoopInfo": "root.LoopInfo"
+      },
+      "script": "if not LoopInfo.max_contrast then\n  return 1\nelse\n  return LoopInfo.max_contrast\nend"
+    },
+    "root.expo.LoopLengthMeasurement": {
+      "inputs": {
+        "LoopInfo": "root.LoopInfo"
+      },
+      "script": "if not LoopInfo.max_measurement then\n  return 1\nelse\n  return LoopInfo.max_measurement\nend"
+    },
+    "root.expo.LoopLengthPhase": {
+      "inputs": {
+        "LoopInfo": "root.LoopInfo"
+      },
+      "script": "if not LoopInfo.max_phase then\n  return 1\nelse\n  return LoopInfo.max_phase\nend"
+    },
+    "root.expo.LoopLengthSet": {
+      "inputs": {
+        "LoopInfo": "root.LoopInfo"
+      },
+      "script": "if not LoopInfo.max_set then\n  return 1\nelse\n  return LoopInfo.max_set\nend"
+    },
+    "root.expo.LoopLengthSlice": {
+      "inputs": {
+        "LoopInfo": "root.LoopInfo"
+      },
+      "script": "if not LoopInfo.max_slice then\n  return 1\nelse\n  return LoopInfo.max_slice\nend"
+    },
+    "root.expo.RegridADCdelay": {
+      "inputs": {
+        "RegridTable": "root.RegridTable"
+      },
+      "script": "if not next(RegridTable) then\n  return 0\nelse\n  return RegridTable[\"ADCdelay\"]\nend"
+    },
+    "root.expo.RegridADCduration": {
+      "inputs": {
+        "RegridTable": "root.RegridTable"
+      },
+      "script": "if not next(RegridTable) then\n  return 0\nelse\n  return RegridTable[\"ADCduration\"]\nend"
+    },
+    "root.expo.RegridADCsamples": {
+      "inputs": {
+        "RegridTable": "root.RegridTable"
+      },
+      "script": "if not next(RegridTable) then\n  return 0\nelse\n  return RegridTable[\"ADCsamples\"]\nend"
+    },
+    "root.expo.RegridGradientFT": {
+      "inputs": {
+        "RegridTable": "root.RegridTable"
+      },
+      "script": "if not next(RegridTable) then\n  return 0\nelse\n  return RegridTable[\"GradientFT\"]\nend"
+    },
+    "root.expo.RegridGradientRDT": {
+      "inputs": {
+        "RegridTable": "root.RegridTable"
+      },
+      "script": "if not next(RegridTable) then\n  return 0\nelse\n  return RegridTable[\"GradientRDT\"]\nend"
+    },
+    "root.expo.RegridGradientRUT": {
+      "inputs": {
+        "RegridTable": "root.RegridTable"
+      },
+      "script": "if not next(RegridTable) then\n  return 0\nelse\n  return RegridTable[\"GradientRUT\"]\nend"
+    },
+    "root.expo.RegridMode": {
+      "inputs": {
+        "RegridTable": "root.RegridTable"
+      },
+      "script": "if not next(RegridTable) then\n  return \"None\"  \nelse\n  return RegridTable[\"Mode\"]\nend"
+    },
+    "root.expo.applyFreqCorr": {
+      "inputs": {},
+      "script": "return false"
+    },
+    "root.expo.feedback_paths": {
+      "inputs": {},
+      "script": "return {}"
+    },
+    "root.expo.paths_for_PNS_estimation": {
+      "inputs": {
+        "PNSPaths": "root.PNSPaths"
+      },
+      "script": "return PNSPaths"
+    },
+    "root.fov": {
+      "inputs": {},
+      "script": "return {200e-3, 200e-3, 200e-3}"
+    },
+    "root.gradient_settings": {
+      "inputs": {
+        "max_grad_amp": "root.sys.max_grad_amp",
+        "max_grad_slew": "root.sys.max_grad_slew",
+        "raster_time": "root.sys.raster_time_grad",
+        "unit_factor": "root.sys.unit_factor_grad"
+      },
+      "script": "local grad_amp = math.min(0.04, max_grad_amp)\nlocal grad_slew = math.min(170, max_grad_slew)\nreturn {max_grad_slew=grad_slew, max_grad_amp=grad_amp, raster_time=raster_time, unit_factor=unit_factor}"
+    },
+    "root.gradient_settings_reduced_performance": {
+      "inputs": {
+        "max_grad_amp": "root.sys.max_grad_amp",
+        "max_grad_slew": "root.sys.max_grad_slew",
+        "raster_time": "root.sys.raster_time_grad",
+        "unit_factor": "root.sys.unit_factor_grad"
+      },
+      "script": "local grad_amp = math.min(0.04, max_grad_amp)\nlocal grad_slew = math.min(170, max_grad_slew)\nreturn {max_grad_slew=.6*grad_slew, max_grad_amp=.6*grad_amp, raster_time=raster_time, unit_factor=unit_factor}"
+    },
+    "root.helper.complex": {
+      "inputs": {},
+      "script": "-- complex 0.3.0\n-- Lua 5.1\n\n-- 'complex' provides common tasks with complex numbers\n\n-- function complex.to( arg ); complex( arg )\n-- returns a complex number on success, nil on failure\n-- arg := number or { number,number } or ( \"(-)<number>\" and/or \"(+/-)<number>i\" )\n--      e.g. 5; {2,3}; \"2\", \"2+i\", \"-2i\", \"2^2*3+1/3i\"\n--      note: 'i' is always in the numerator, spaces are not allowed\n\n-- a complex number is defined as carthesic complex number\n-- complex number := { real_part, imaginary_part }\n-- this gives fast access to both parts of the number for calculation\n-- the access is faster than in a hash table\n-- the metatable is just a add on, when it comes to speed, one is faster using a direct function call\n\n-- http://luaforge.net/projects/LuaMatrix\n-- http://lua-users.org/wiki/ComplexNumbers\n\n-- Licensed under the same terms as Lua itself.\n\n--/////////////--\n--// complex //--\n--/////////////--\n\n-- link to complex table\nlocal complex = {}\n\n-- link to complex metatable\nlocal complex_meta = {}\n\n-- complex.to( arg )\n-- return a complex number on success\n-- return nil on failure\nlocal _retone = function() return 1 end\nlocal _retminusone = function() return -1 end\nfunction complex.to( num )\n   -- check for table type\n   if type( num ) == \"table\" then\n      -- check for a complex number\n      if getmetatable( num ) == complex_meta then\n         return num\n      end\n      local real,imag = tonumber( num[1] ),tonumber( num[2] )\n      if real and imag then\n         return setmetatable( { real,imag }, complex_meta )\n      end\n      return\n   end\n   -- check for number\n   local isnum = tonumber( num )\n   if isnum then\n      return setmetatable( { isnum,0 }, complex_meta )\n   end\n   if type( num ) == \"string\" then\n      -- check for real and complex\n      -- number chars [%-%+%*%^%d%./Ee]\n      local real,sign,imag = string.match( num, \"^([%-%+%*%^%d%./Ee]*%d)([%+%-])([%-%+%*%^%d%./Ee]*)i$\" )\n      if real then\n         if string.lower(string.sub(real,1,1)) == \"e\"\n         or string.lower(string.sub(imag,1,1)) == \"e\" then\n            return\n         end\n         if imag == \"\" then\n            if sign == \"+\" then\n               imag = _retone\n            else\n               imag = _retminusone\n            end\n         elseif sign == \"+\" then\n            imag = loadstring(\"return tonumber(\"..imag..\")\")\n         else\n            imag = loadstring(\"return tonumber(\"..sign..imag..\")\")\n         end\n         real = loadstring(\"return tonumber(\"..real..\")\")\n         if real and imag then\n            return setmetatable( { real(),imag() }, complex_meta )\n         end\n         return\n      end\n      -- check for complex\n      local imag = string.match( num,\"^([%-%+%*%^%d%./Ee]*)i$\" )\n      if imag then\n         if imag == \"\" then\n            return setmetatable( { 0,1 }, complex_meta )\n         elseif imag == \"-\" then\n            return setmetatable( { 0,-1 }, complex_meta )\n         end\n         if string.lower(string.sub(imag,1,1)) ~= \"e\" then\n            imag = loadstring(\"return tonumber(\"..imag..\")\")\n            if imag then\n               return setmetatable( { 0,imag() }, complex_meta )\n            end\n         end\n         return\n      end\n      -- should be real\n      local real = string.match( num,\"^(%-*[%d%.][%-%+%*%^%d%./Ee]*)$\" )\n      if real then\n         real = loadstring( \"return tonumber(\"..real..\")\" )\n         if real then\n            return setmetatable( { real(),0 }, complex_meta )\n         end\n      end\n   end\nend\n\n-- complex( arg )\n-- same as complex.to( arg )\n-- set __call behaviour of complex\nsetmetatable( complex, { __call = function( _,num ) return complex.to( num ) end } )\n\n-- complex.new( real, complex )\n-- fast function to get a complex number, not invoking any checks\nfunction complex.new( ... )\n   return setmetatable( { ... }, complex_meta )\nend\n\n-- complex.type( arg )\n-- is argument of type complex\nfunction complex.type( arg )\n   if getmetatable( arg ) == complex_meta then\n      return \"complex\"\n   end\nend\n\n-- complex.convpolar( r, phi )\n-- convert polar coordinates ( r*e^(i*phi) ) to carthesic complex number\n-- r (radius) is a number\n-- phi (angle) must be in radians; e.g. [0 - 2pi]\nfunction complex.convpolar( radius, phi )\n   return setmetatable( { radius * math.cos( phi ), radius * math.sin( phi ) }, complex_meta )\nend\n\n-- complex.convpolardeg( r, phi )\n-- convert polar coordinates ( r*e^(i*phi) ) to carthesic complex number\n-- r (radius) is a number\n-- phi must be in degrees; e.g. [0° - 360°]\nfunction complex.convpolardeg( radius, phi )\n   phi = phi/180 * math.pi\n   return setmetatable( { radius * math.cos( phi ), radius * math.sin( phi ) }, complex_meta )\nend\n\n--// complex number functions only\n\n-- complex.tostring( cx [, formatstr] )\n-- to string or real number\n-- takes a complex number and returns its string value or real number value\nfunction complex.tostring( cx,formatstr )\n   local real,imag = cx[1],cx[2]\n   if formatstr then\n      if imag == 0 then\n         return string.format( formatstr, real )\n      elseif real == 0 then\n         return string.format( formatstr, imag )..\"i\"\n      elseif imag > 0 then\n         return string.format( formatstr, real )..\"+\"..string.format( formatstr, imag )..\"i\"\n      end\n      return string.format( formatstr, real )..string.format( formatstr, imag )..\"i\"\n   end\n   if imag == 0 then\n      return real\n   elseif real == 0 then\n      return ((imag==1 and \"\") or (imag==-1 and \"-\") or imag)..\"i\"\n   elseif imag > 0 then\n      return real..\"+\"..(imag==1 and \"\" or imag)..\"i\"\n   end\n   return real..(imag==-1 and \"-\" or imag)..\"i\"\nend\n\n-- complex.print( cx [, formatstr] )\n-- print a complex number\nfunction complex.print( ... )\n   print( complex.tostring( ... ) )\nend\n\n-- complex.polar( cx )\n-- from complex number to polar coordinates\n-- output in radians; [-pi,+pi]\n-- returns r (radius), phi (angle)\nfunction complex.polar( cx )\n   return math.sqrt( cx[1]^2 + cx[2]^2 ), math.atan( cx[2], cx[1] )\nend\n\n-- complex.polardeg( cx )\n-- from complex number to polar coordinates\n-- output in degrees; [-180°,180°]\n-- returns r (radius), phi (angle)\nfunction complex.polardeg( cx )\n   return math.sqrt( cx[1]^2 + cx[2]^2 ), math.atan( cx[2], cx[1] ) / math.pi * 180\nend\n\n-- complex.mulconjugate( cx )\n-- multiply with conjugate, function returning a number\nfunction complex.mulconjugate( cx )\n   return cx[1]^2 + cx[2]^2\nend\n\n-- complex.abs( cx )\n-- get the absolute value of a complex number\nfunction complex.abs( cx )\n   return math.sqrt( cx[1]^2 + cx[2]^2 )\nend\n\n-- complex.get( cx )\n-- returns real_part, imaginary_part\nfunction complex.get( cx )\n   return cx[1],cx[2]\nend\n\n-- complex.set( cx, real, imag )\n-- sets real_part = real and imaginary_part = imag\nfunction complex.set( cx,real,imag )\n   cx[1],cx[2] = real,imag\nend\n\n-- complex.is( cx, real, imag )\n-- returns true if, real_part = real and imaginary_part = imag\n-- else returns false\nfunction complex.is( cx,real,imag )\n   if cx[1] == real and cx[2] == imag then\n      return true\n   end\n   return false\nend\n\n--// functions returning a new complex number\n\n-- complex.copy( cx )\n-- copy complex number\nfunction complex.copy( cx )\n   return setmetatable( { cx[1],cx[2] }, complex_meta )\nend\n\n-- complex.add( cx1, cx2 )\n-- add two numbers; cx1 + cx2\nfunction complex.add( cx1,cx2 )\n   return setmetatable( { cx1[1]+cx2[1], cx1[2]+cx2[2] }, complex_meta )\nend\n\n-- complex.sub( cx1, cx2 )\n-- subtract two numbers; cx1 - cx2\nfunction complex.sub( cx1,cx2 )\n   return setmetatable( { cx1[1]-cx2[1], cx1[2]-cx2[2] }, complex_meta )\nend\n\n-- complex.mul( cx1, cx2 )\n-- multiply two numbers; cx1 * cx2\nfunction complex.mul( cx1,cx2 )\n   return setmetatable( { cx1[1]*cx2[1] - cx1[2]*cx2[2],cx1[1]*cx2[2] + cx1[2]*cx2[1] }, complex_meta )\nend\n\n-- complex.mulnum( cx, num )\n-- multiply complex with number; cx1 * num\nfunction complex.mulnum( cx,num )\n   return setmetatable( { cx[1]*num,cx[2]*num }, complex_meta )\nend\n\n-- complex.div( cx1, cx2 )\n-- divide 2 numbers; cx1 / cx2\nfunction complex.div( cx1,cx2 )\n   -- get complex value\n   local val = cx2[1]^2 + cx2[2]^2\n   -- multiply cx1 with conjugate complex of cx2 and divide through val\n   return setmetatable( { (cx1[1]*cx2[1]+cx1[2]*cx2[2])/val,(cx1[2]*cx2[1]-cx1[1]*cx2[2])/val }, complex_meta )\nend\n\n-- complex.divnum( cx, num )\n-- divide through a number\nfunction complex.divnum( cx,num )\n   return setmetatable( { cx[1]/num,cx[2]/num }, complex_meta )\nend\n\n-- complex.pow( cx, num )\n-- get the power of a complex number\nfunction complex.pow( cx,num )\n   if math.floor( num ) == num then\n      if num < 0 then\n         local val = cx[1]^2 + cx[2]^2\n         cx = { cx[1]/val,-cx[2]/val }\n         num = -num\n      end\n      local real,imag = cx[1],cx[2]\n      for i = 2,num do\n         real,imag = real*cx[1] - imag*cx[2],real*cx[2] + imag*cx[1]\n      end\n      return setmetatable( { real,imag }, complex_meta )\n   end\n   -- we calculate the polar complex number now\n   -- since then we have the versatility to calc any potenz of the complex number\n   -- then we convert it back to a carthesic complex number, we loose precision here\n   local length,phi = math.sqrt( cx[1]^2 + cx[2]^2 )^num, math.atan( cx[2], cx[1] )*num\n   return setmetatable( { length * math.cos( phi ), length * math.sin( phi ) }, complex_meta )\nend\n\n-- complex.sqrt( cx )\n-- get the first squareroot of a complex number, more accurate than cx^.5\nfunction complex.sqrt( cx )\n   local len = math.sqrt( cx[1]^2+cx[2]^2 )\n   local sign = (cx[2]<0 and -1) or 1\n   return setmetatable( { math.sqrt((cx[1]+len)/2), sign*math.sqrt((len-cx[1])/2) }, complex_meta )\nend\n\n-- complex.ln( cx )\n-- natural logarithm of cx\nfunction complex.ln( cx )\n   return setmetatable( { math.log(math.sqrt( cx[1]^2 + cx[2]^2 )),\n      math.atan( cx[2], cx[1] ) }, complex_meta )\nend\n\n-- complex.exp( cx )\n-- exponent of cx (e^cx)\nfunction complex.exp( cx )\n   local expreal = math.exp(cx[1])\n   return setmetatable( { expreal*math.cos(cx[2]), expreal*math.sin(cx[2]) }, complex_meta )\nend\n\n-- complex.conjugate( cx )\n-- get conjugate complex of number\nfunction complex.conjugate( cx )\n   return setmetatable( { cx[1], -cx[2] }, complex_meta )\nend\n\n-- complex.round( cx [,idp] )\n-- round complex numbers, by default to 0 decimal points\nfunction complex.round( cx,idp )\n   local mult = 10^( idp or 0 )\n   return setmetatable( { math.floor( cx[1] * mult + 0.5 ) / mult,\n      math.floor( cx[2] * mult + 0.5 ) / mult }, complex_meta )\nend\n\n--// metatable functions\n\ncomplex_meta.__add = function( cx1,cx2 )\n   local cx1,cx2 = complex.to( cx1 ),complex.to( cx2 )\n   return complex.add( cx1,cx2 )\nend\ncomplex_meta.__sub = function( cx1,cx2 )\n   local cx1,cx2 = complex.to( cx1 ),complex.to( cx2 )\n   return complex.sub( cx1,cx2 )\nend\ncomplex_meta.__mul = function( cx1,cx2 )\n   local cx1,cx2 = complex.to( cx1 ),complex.to( cx2 )\n   return complex.mul( cx1,cx2 )\nend\ncomplex_meta.__div = function( cx1,cx2 )\n   local cx1,cx2 = complex.to( cx1 ),complex.to( cx2 )\n   return complex.div( cx1,cx2 )\nend\ncomplex_meta.__pow = function( cx,num )\n   if num == \"*\" then\n      return complex.conjugate( cx )\n   end\n   return complex.pow( cx,num )\nend\ncomplex_meta.__unm = function( cx )\n   return setmetatable( { -cx[1], -cx[2] }, complex_meta )\nend\ncomplex_meta.__eq = function( cx1,cx2 )\n   if cx1[1] == cx2[1] and cx1[2] == cx2[2] then\n      return true\n   end\n   return false\nend\ncomplex_meta.__tostring = function( cx )\n   return tostring( complex.tostring( cx ) )\nend\ncomplex_meta.__concat = function( cx,cx2 )\n   return tostring(cx)..tostring(cx2)\nend\n-- cx( cx, formatstr )\ncomplex_meta.__call = function( ... )\n   print( complex.tostring( ... ) )\nend\ncomplex_meta.__index = {}\nfor k,v in pairs( complex ) do\n   complex_meta.__index[k] = v\nend\n\nreturn complex\n\n--///////////////--\n--// chillcode //--\n--///////////////--"
+    },
+    "root.helper.constants": {
+      "inputs": {},
+      "script": "--CONSTANTS\ngolden_ratio_1d = 0.618033988749\ngolden_ratio_2d_1 = 0.465571231876\ngolden_ratio_2d_2 = 0.682327803828\nspoilphase_inc_inc = 117\n\nreturn {\n  golden_ratio_1d=golden_ratio_1d,\n  golden_ratio_2d_1=golden_ratio_2d_1,\n  golden_ratio_2d_2=golden_ratio_2d_2,\n  spoilphase_inc_inc=spoilphase_inc_inc\n  }"
+    },
+    "root.helper.functions": {
+      "inputs": {
+        "gamma": "root.sys.gamma"
+      },
+      "script": "--KSPACE HELPER\ndx_to_m0 = function(dx)\n  return 1 / (dx * gamma)\nend\n\nk_to_m0 = function(k)\n  return k / gamma\nend\n\nm0_to_k = function(m0)\n  return m0 * gamma\nend\n\ncalc_moment_from_grad = function(samples)\n  local moment = 0\n  for i=1,#samples.t-1 do\n    moment = moment + 0.5 * (samples.v[i] + samples.v[i+1]) * (samples.t[i+1] - samples.t[i])\n  end\n  return moment\nend\n\ncalc_gradient_shape_from_moment = function(moment, gradient_settings)\n  local raster_time = gradient_settings.raster_time\n  local max_grad_slew = gradient_settings.max_grad_slew\n  local max_grad_amp = gradient_settings.max_grad_amp\n  if moment == 0 then\n    return {rt=0, ft=0}\n  end\n  local rt = math.sqrt(math.abs(moment) / max_grad_slew)\n  local rastered_ramp = math.ceil(rt/raster_time)*raster_time\n  local amp = moment / rastered_ramp\n  local rastered_ft\n  if (math.abs(amp) > max_grad_amp) then\n    rt = max_grad_amp / max_grad_slew\n    rastered_ramp = math.ceil(rt / raster_time) * raster_time\n    flat_time = (math.abs(moment) - rastered_ramp * max_grad_amp) / max_grad_amp\n    rastered_ft = math.ceil(flat_time / raster_time) * raster_time\n    amp = moment / (rastered_ramp + rastered_ft)\n    return {rt=rastered_ramp, ft=rastered_ft, amp=amp}\n  end\n  return {rt=rastered_ramp, ft=0, amp=amp}\nend\n\n\n--VECTOR FUNCTIONS\nmat_mult = function(a,b)\n  c = {{0,0,0},{0,0,0},{0,0,0}}\n  for i=1,3 do\n    for j=1,3 do\n      for k=1,3 do\n        c[i][j] = c[i][j] + a[i][k]*b[k][j]\n      end\n    end\n  end\n  return c\nend\n\nmat_transp = function(a)\n  b = {{0,0,0},{0,0,0},{0,0,0}}\n  for i=1,3 do\n    for j=1,3 do\n      b[i][j] = a[j][i]\n    end\n  end\n  return b\nend\n\nrot_vec = function(a,b)\n  c = {0,0,0}\n  for i=1,3 do\n    for j=1,3 do\n      c[i] = c[i] + a[i][j]*b[j]\n    end\n  end\n  return c\nend\n\n\n--TRIGONOMETRIC FUNCTIONS\ncosh = function(x)\n  return .5*(math.exp(x)+math.exp(-x))\nend\n\nsinh = function(x)\n  return .5*(math.exp(x)-math.exp(-x))\nend\n\ntanh = function(x)\n  return 1-2/(math.exp(2*x)+1)\nend\n\n\n--OTHER FUNCTIONS\nfac = function(n)\n  local v = 1\n  if n > 1 then\n    for i = 2, n do\n      v = v * i\n    end\n  end\n  return v\nend\n\nreturn {\n  cosh=cosh,\n  dx_to_m0=dx_to_m0,\n  k_to_m0=k_to_m0,\n  mat_mult=mat_mult,\n  mat_transp=mat_transp,\n  m0_to_k=m0_to_k,\n  calc_gradient_shape_from_moment=calc_gradient_shape_from_moment,\n  calc_moment_from_grad=calc_moment_from_grad,\n  rot_vec=rot_vec,\n  sinh=sinh,\n  tanh=tanh,\n  getLowHighTabIndex=getLowHighTabIndex,\n  fac=fac\n  }"
+    },
+    "root.info.description": {
+      "inputs": {},
+      "script": "return [[# Empty sequence\n]]"
+    },
+    "root.info.isASL": {
+      "inputs": {},
+      "script": "return false"
+    },
+    "root.info.isEPI": {
+      "inputs": {},
+      "script": "return false"
+    },
+    "root.info.seq_dim": {
+      "inputs": {},
+      "script": "return 2"
+    },
+    "root.mat_size": {
+      "inputs": {},
+      "script": "return {64, 64, 1}"
+    },
+    "root.prot.PAT_factor_phase": {
+      "inputs": {},
+      "script": "return 2"
+    },
+    "root.prot.PAT_factor_slice": {
+      "inputs": {},
+      "script": "return 1"
+    },
+    "root.prot.PAT_mode": {
+      "inputs": {},
+      "script": "return 'None'"
+    },
+    "root.prot.PAT_ref_lines_phase": {
+      "inputs": {},
+      "script": "return 32"
+    },
+    "root.prot.PAT_ref_lines_slice": {
+      "inputs": {},
+      "script": "return 16"
+    },
+    "root.prot.echo_train_length": {
+      "inputs": {},
+      "script": "return 1"
+    },
+    "root.prot.multiband_factor": {
+      "inputs": {},
+      "script": "return 1"
+    },
+    "root.prot.offcenter_exc_1": {
+      "inputs": {},
+      "script": "return {0,0,0}"
+    },
+    "root.prot.orientation_exc_1": {
+      "inputs": {},
+      "script": "return {{1,0,0},{0,1,0},{0,0,1}}"
+    },
+    "root.prot.phase_oversampling": {
+      "inputs": {},
+      "script": "return 0.0"
+    },
+    "root.prot.phase_partial_fourier": {
+      "inputs": {},
+      "script": "return 1"
+    },
+    "root.prot.point_of_interest": {
+      "inputs": {},
+      "script": "return 'root.structure.repetition'"
+    },
+    "root.prot.read_oversampling": {
+      "inputs": {},
+      "script": "return 1.0"
+    },
+    "root.prot.read_partial_fourier": {
+      "inputs": {},
+      "script": "return 1"
+    },
+    "root.prot.rot_matrix": {
+      "inputs": {},
+      "script": "return {{1,0,0},{0,1,0},{0,0,1}}"
+    },
+    "root.prot.slice_distance_factor": {
+      "inputs": {},
+      "script": "return 0.0"
+    },
+    "root.prot.slice_oversampling": {
+      "inputs": {},
+      "script": "return 0.0"
+    },
+    "root.prot.slice_partial_fourier": {
+      "inputs": {},
+      "script": "return 1"
+    },
+    "root.prot.slice_reorder_scheme": {
+      "inputs": {},
+      "script": "return 'Interleaved'"
+    },
+    "root.prot.thickness_exc_1": {
+      "inputs": {},
+      "script": "return -1"
+    },
+    "root.prot.turbo_factor": {
+      "inputs": {},
+      "script": "return 1"
+    },
+    "root.prot.ui_specification": {
+      "inputs": {},
+      "script": "return '[]'"
+    },
+    "root.rf_settings": {
+      "inputs": {
+        "max_rf_amp": "root.sys.max_rf_amp",
+        "raster_time": "root.sys.raster_time_rf",
+        "unit_factor": "root.sys.unit_factor_rf"
+      },
+      "script": "return {max_rf_amp=max_rf_amp, raster_time=raster_time, unit_factor=unit_factor}"
+    },
+    "root.sys.coil_values_for_pns": {
+      "inputs": {},
+      "script": "-- values for GE scanner from paper \"Peripheral Nerve Stimulation-Optimal Gradient Waveform Design\"\n-- by Schulte & Noeske Magnetic Resonance in Medicine 74:518–522 (2015)\n-- alpha: effective coil length [m]\n-- r: rheobase [T/s]\n-- c: chronaxie time constant [s]\n-- Smin: stimulation slew rate[T/m/s] = r/alpha\nreturn {alpha=0.333, r=23.4, c=334*1e-6, Smin=70.27}"
+    },
+    "root.sys.fat_shift": {
+      "inputs": {
+        "sys_frequency": "root.sys.frequency"
+      },
+      "script": "return -3.35 * 1e-6 * (sys_frequency[1] + sys_frequency[2])"
+    },
+    "root.sys.frequency": {
+      "inputs": {},
+      "script": "return {123200000, 0}"
+    },
+    "root.sys.gamma": {
+      "inputs": {},
+      "script": "return 42.575575e6 --23Na: 11.26e6 1H: 42.575575e6"
+    },
+    "root.sys.max_grad_amp": {
+      "inputs": {},
+      "script": "return 43e-3"
+    },
+    "root.sys.max_grad_slew": {
+      "inputs": {},
+      "script": "return 180.180174"
+    },
+    "root.sys.max_rf_amp": {
+      "inputs": {},
+      "script": "--default value for standard head coil at Siemens scanner\n--local maxVoltageAllowed = 600 --in V\n--local refVoltage = 140 --in V\n--local gamma = 42.5763866e6\n--return maxVoltageAllowed/refVoltage * math.pi / (2*math.pi*gamma*1e-3)\nreturn 21.58e-6"
+    },
+    "root.sys.raster_time_adc": {
+      "inputs": {},
+      "script": "return 1e-6"
+    },
+    "root.sys.raster_time_grad": {
+      "inputs": {},
+      "script": "return 10e-6"
+    },
+    "root.sys.raster_time_rf": {
+      "inputs": {},
+      "script": "return 10e-6"
+    },
+    "root.sys.raster_time_trigger": {
+      "inputs": {},
+      "script": "return 1e-6"
+    },
+    "root.sys.unit_factor_adc": {
+      "inputs": {},
+      "script": "return 1e-6"
+    },
+    "root.sys.unit_factor_grad": {
+      "inputs": {},
+      "script": "return 1e-6"
+    },
+    "root.sys.unit_factor_rf": {
+      "inputs": {},
+      "script": "return 1e-6"
+    },
+    "root.sys.unit_factor_trigger": {
+      "inputs": {},
+      "script": "return 1e-6"
+    },
+    "root.tests.all_tests": {
+      "inputs": {},
+      "script": "return {\n\n}"
+    },
+    "root.tstart": {
+      "inputs": {},
+      "script": "return 0"
+    }
+  },
+  "sequence_elements": {
+    "root": "d9866d1f-28a7-46b0-96ce-7e4272a7e964",
+    "root.expo": "c54aab35-2bd3-41e3-b892-35a072404b69",
+    "root.helper": "3ec659dd-2b06-44a8-9af5-30a8496cfc57",
+    "root.info": "Empty",
+    "root.prot": "Protocol",
+    "root.sys": "System",
+    "root.tests": "Tests"
+  }
+}

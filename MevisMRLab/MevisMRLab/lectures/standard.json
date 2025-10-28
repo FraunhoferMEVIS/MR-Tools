@@ -1,0 +1,13 @@
+{
+	"filter": ["basic","full_sequence"],
+	"general_tags": ["variable"],
+	"toolVisibility": {"BlochSim":true,
+						"Simulation":false,
+						"3DViewer":true},
+	"toolPreset": {"BlochSim": "standard",
+					"Simulation":"",
+					"Plot":"sim_ext.",
+					"3DViewer":"standard"},
+    "blocks": [
+    ]
+}

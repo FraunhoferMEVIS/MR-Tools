@@ -1,0 +1,81 @@
+{
+	"filter": ["term 3","basic","full_sequence"],
+	"general_tags": ["term 3"],
+	"toolVisibility": {"BlochSim":true,
+						"Simulation":false,
+						"Plot":"sim_ext.",
+						"3DViewer":true},
+	"toolPreset": {"BlochSim": "imaging_small",
+					"Simulation":"",
+					"3DViewer":""},
+    "blocks": [
+      {
+        "name": "my_FA042",
+        "id": "rf_ns",
+		"properties": {
+			"parameter_units": "metric",
+			"param_desc": {},
+			"parameters": {
+				"rf_amp": 42.0
+			},
+			"type": "rfpulse",
+			"tags": ["rfpulse", "basic"]
+		}
+      },
+      {
+        "id": "gradient",
+        "name": "blip_x",
+		"properties": {
+			"parameter_units": "pulseq",
+			"parameters": {
+				"gradX_amp": 400000,"gradY_amp": 0,"gradZ_amp": 0,
+				"grad_flat": 0,"grad_ramp": 200,
+				"rf_amp": 197.491,"rf_freq": 0,"rf_phase": 0
+			},
+			"type": "preparation",
+			"tags": ["gradient", "basic"]
+		}
+	  },
+      {
+        "name": "blip_y",
+        "id": "gradient",
+		"properties": {
+			"parameter_units": "pulseq",
+			"parameters": {
+				"gradX_amp": 0,"gradY_amp": 400000,"gradZ_amp": 0,
+				"grad_flat": 0,"grad_ramp": 200,
+				"rf_amp": 197.491,"rf_freq": 0,"rf_phase": 0
+			},
+			"type": "preparation",
+			"tags": ["gradient", "basic"]
+		}
+	  },
+      {
+        "name": "blip_z",
+        "id": "gradient",
+		"properties": {
+			"parameter_units": "pulseq",
+			"parameters": {
+				"gradX_amp": 0,"gradY_amp": 0,"gradZ_amp": 400000,
+				"grad_flat": 0,"grad_ramp": 200,
+				"rf_amp": 197.491,"rf_freq": 0,"rf_phase": 0
+			},
+			"type": "preparation",
+			"tags": ["gradient", "basic"]
+		}
+	  },
+      {
+        "name": "myTableY",
+        "id": "gradient",
+		"properties": {
+			"parameter_units": "metric",
+			"parameters": {
+				"gradY_amp": "(loop_counter-loop_length)*1.0",
+				"grad_flat": 0,"grad_ramp": 200
+			},
+			"type": "preparation",
+			"tags": ["gradient", "basic"]
+		}
+	  }
+    ]
+}

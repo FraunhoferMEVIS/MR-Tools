@@ -1,0 +1,37 @@
+# Pulseq sequence file
+# Created by PyPulseq
+# PARAMETERS_JSON_START
+# {
+#   "grad_ramp":    { "type": "int",   "default": 200,  "min": 0,"max": 500, "step": 10, "unit": "us", "pulseq_value": 200, "pulseq_unit": "us", "description":"ramp up and down time" },
+#   "grad_flat":    { "type": "int",   "default": 5000, "min": 0,"max": 200000, "step": 10, "unit": "us", "pulseq_value": 5000, "pulseq_unit": "us", "description":"flattop time"  },
+#   "gradX_amp":    { "type": "float", "default": 9.394964, "min": -40.0, "max": 40.0, "step": 0.1, "unit": "mT/m", "pulseq_value": 400000,  "pulseq_unit": "Hz/m", "description":"gradient amplitude in x direction" },
+#   "gradY_amp":    { "type": "float", "default": 9.394964, "min": -40.0, "max": 40.0, "step": 0.1, "unit": "mT/m", "pulseq_value": 400000,  "pulseq_unit": "Hz/m", "description":"gradient amplitude in y direction" },
+#   "gradZ_amp":    { "type": "float", "default": 9.394964, "min": -40.0, "max": 40.0, "step": 0.1, "unit": "mT/m", "pulseq_value": 400000,  "pulseq_unit": "Hz/m", "description":"gradient amplitude in z direction" }
+# }
+# PARAMETERS_JSON_END
+
+[VERSION]
+major 1
+minor 4
+revision 2
+
+[DEFINITIONS]
+AdcRasterTime 1e-07 
+BlockDurationRaster 1e-05 
+GradientRasterTime 0.0001 
+RadiofrequencyRasterTime 1e-06 
+TotalDuration {(2*grad_ramp+grad_flat)*1e-6} 
+
+# Format of blocks:
+# NUM DUR RF  GX  GY  GZ  ADC  EXT
+[BLOCKS]
+1  {int((2*grad_ramp+grad_flat)/10)}   0   1   2   3  0  0
+
+# Format of trapezoid gradients:
+# id amplitude rise flat fall delay
+# ..      Hz/m   us   us   us    us
+[TRAP]
+ 1 {int(gradX_amp)} {grad_ramp} {grad_flat} {grad_ramp}   0
+ 2 {int(gradY_amp)} {grad_ramp} {grad_flat} {grad_ramp}   0
+ 3 {int(gradZ_amp)} {grad_ramp} {grad_flat} {grad_ramp}   0
+

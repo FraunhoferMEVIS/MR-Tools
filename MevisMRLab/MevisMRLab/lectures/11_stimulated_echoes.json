@@ -1,0 +1,24 @@
+{
+	"filter": ["gradient","rfpulse","lecture11"],
+	"general_tags": ["stimulated_echo"],
+	"toolVisibility": {"BlochSim":true,
+						"Simulation":false,
+						"3DViewer":true},
+	"toolPreset": {"BlochSim": "stimulated_echoes",
+					"Simulation":"",
+					"Plot":"sim_ext.",
+					"3DViewer":"stimulated_echoes"},
+    "blocks": [
+    {
+      "name": "readout",
+      "id":   "epi_2D_seq",
+      "properties": {
+        "parameter_units": "metric",
+        "param_desc": {},
+        "parameters": {},
+        "type": "readout",
+        "tags": ["lecture11"]
+      }
+    }
+    ]
+}

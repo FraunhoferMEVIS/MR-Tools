@@ -1,0 +1,140 @@
+{
+  "standard": {
+    "show_vectors": 0,
+    "show_shadows": true,
+    "show_locations": false,
+    "color_mode": 0,
+    "cmap": 0,
+    "arrow_size": 100,
+    "focal_point": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "position": [
+      13.995221406291995,
+      13.995221406291995,
+      13.995221406291995
+    ],
+    "up": [
+      0.0,
+      0.0,
+      1.0
+    ]
+  },
+  "test": {
+    "show_vectors": 0,
+    "show_shadows": true,
+    "show_locations": false,
+    "color_mode": 2,
+    "cmap": 0,
+    "arrow_size": 100,
+    "focal_point": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "position": [
+      1.5488776355692768,
+      1.647154301674249,
+      29.914676344171088
+    ],
+    "up": [
+      -0.042691502759389634,
+      -0.9974534457491283,
+      0.057131945138739856
+    ]
+  },
+  "slice_profile": {
+    "show_vectors": 1,
+    "show_shadows": false,
+    "show_locations": false,
+    "color_mode": 2,
+    "cmap": 0,
+    "arrow_size": 200,
+    "focal_point": [
+      0.0,
+      0.0,
+      1.4210854715202004e-16
+    ],
+    "position": [
+      11.566298682885945,
+      0.0,
+      1.4210854715202004e-16
+    ],
+    "up": [
+      0.0,
+      0.0,
+      1.0
+    ]
+  },
+  "phase": {
+    "show_vectors": 0,
+    "show_shadows": true,
+    "show_locations": true,
+    "color_mode": 2,
+    "cmap": 0,
+    "arrow_size": 1818,
+    "focal_point": [
+      2.2114187459010282e-07,
+      0.2859025001525879,
+      0.0
+    ],
+    "position": [
+      315.6363525390625,
+      315.9222412109375,
+      315.6363525390625
+    ],
+    "up": [
+      0.0,
+      0.0,
+      1.0
+    ]
+  },
+  "dephasing_z": {
+    "show_vectors": 3,
+    "show_shadows": true,
+    "show_locations": false,
+    "color_mode": 2,
+    "cmap": 0,
+    "arrow_size": 1007,
+    "focal_point": [
+      0.0,
+      0.0,
+      1.4210854715202004e-16
+    ],
+    "position": [
+      0.0,
+      0.0,
+      36.300000000000004
+    ],
+    "up": [
+      0.0,
+      1.0,
+      0.0
+    ]
+  },
+  "stimulated_echoes": {
+    "show_vectors": 0,
+    "show_shadows": false,
+    "show_locations": false,
+    "color_mode": 0,
+    "cmap": 0,
+    "arrow_size": 602,
+    "focal_point": [
+      0.0,
+      2.9558577807620166e-16,
+      0.0
+    ],
+    "position": [
+      0.0,
+      2.9558577807620166e-16,
+      90.0
+    ],
+    "up": [
+      0.0,
+      1.0,
+      0.0
+    ]
+  }
+}

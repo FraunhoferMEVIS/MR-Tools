@@ -1,0 +1,49 @@
+# Pulseq sequence file
+# Created by PyPulseq
+# PARAMETERS_JSON_START
+# {
+#   "gradX_amp":    { "type": "float", "default": 4.7, "min": -40.0, "max": 40.0, "step": 0.1, "unit": "mT/m", "pulseq_value": 250000,  "pulseq_unit": "Hz/m", "description":"gradient amplitude in x direction" },
+#   "gradY_amp":    { "type": "float", "default": 4.0, "min": -40.0, "max": 40.0, "step": 0.1, "unit": "mT/m", "pulseq_value": 200000,  "pulseq_unit": "Hz/m", "description":"gradient amplitude in y direction" },
+#   "adc_phase": {
+#     "type": "float", "default": 0.0, "min": 0.0, "max": 360.0, "step": 1,
+#     "unit": "deg", "pulseq_value": 0, "pulseq_unit": "rad", "description": "adc phase"
+#   }
+# }
+# PARAMETERS_JSON_END
+
+[VERSION]
+major 1
+minor 4
+revision 2
+
+[DEFINITIONS]
+AdcRasterTime 1e-07 
+BlockDurationRaster 1e-05 
+FOV 0.2 0.2 0.002 
+GradientRasterTime 0.0001 
+Name gre 
+RadiofrequencyRasterTime 1e-06 
+TotalDuration 0.00348 
+
+# Format of blocks:
+# NUM DUR RF  GX  GY  GZ  ADC  EXT
+[BLOCKS]
+  1 100   0   1   2   0  0  0
+  2 148   0   3   0   0  1  0
+  3 100   0   1   4   0  0  0
+
+# Format of trapezoid gradients:
+# id amplitude rise flat fall delay
+# ..      Hz/m   us   us   us    us
+[TRAP]
+ 1    {int(-gradX_amp*215625/250000)} 200  600 200   0
+ 2    {int(-gradY_amp)} 200  600 200   0
+ 3    {int(gradX_amp)} 100 1280 100   0
+ 4    {int(gradY_amp)} 200  600 200   0
+
+# Format of ADC events:
+# id num dwell delay freq phase
+# ..  ..    ns    us   Hz   rad
+[ADC]
+1 64 20000 100 0 {adc_phase}
+

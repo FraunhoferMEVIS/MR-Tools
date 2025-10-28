@@ -1,0 +1,255 @@
+{
+    "blueprints": {
+        "3c049c21-dd53-4903-9c99-c31b514f65b5": {
+            "definitions": {
+                "default_export": {
+                    "blueprint_id": "54ea5fd1-0f57-4248-9508-77f5b861edd2",
+                    "name": "default_export",
+                    "type": "extending_definition"
+                },
+                "default_helper": {
+                    "blueprint_id": "83cef442-e8d2-4218-843e-280ca227259b",
+                    "name": "default_helper",
+                    "type": "extending_definition"
+                },
+                "default_info": {
+                    "blueprint_id": "415679b9-f8fb-4010-95f9-651d1ddac19a",
+                    "name": "default_info",
+                    "type": "extending_definition"
+                },
+                "default_protocol": {
+                    "blueprint_id": "f7f39ac8-0440-4dd2-9702-4d7cc10b854a",
+                    "name": "default_protocol",
+                    "type": "extending_definition"
+                },
+                "default_protocol_PAT": {
+                    "blueprint_id": "232ab906-17df-4de8-b016-3a043a38eed2",
+                    "name": "default_protocol_PAT",
+                    "type": "extending_definition"
+                },
+                "default_system": {
+                    "blueprint_id": "bd6d2ae9-7b07-4b88-ad69-9cadc1ea3194",
+                    "name": "default_system",
+                    "type": "extending_definition"
+                },
+                "epi_2D_seq": {
+                    "blueprint_id": "d55b2181-18a8-4ba1-b9f4-2681147290b9",
+                    "name": "epi_2D_seq",
+                    "type": "sequence_element_definition"
+                },
+                "epi_2D_seq.duration": {
+                    "name": "epi_2D_seq.duration",
+                    "script": "return 0.07667999999999997",
+                    "sources": {
+                    },
+                    "type": "parameter_definition"
+                },
+                "epi_2D_seq.tstart": {
+                    "name": "epi_2D_seq.tstart",
+                    "script": "return 0.097026",
+                    "sources": {
+                    },
+                    "type": "parameter_definition"
+                },
+                "excFA045_": {
+                    "blueprint_id": "2a5c5aea-d0f0-478a-8ce6-d9bd05bbe453",
+                    "name": "excFA045_",
+                    "type": "sequence_element_definition"
+                },
+                "excFA045_.duration": {
+                    "name": "excFA045_.duration",
+                    "script": "return 0.0071200000000000005",
+                    "sources": {
+                    },
+                    "type": "parameter_definition"
+                },
+                "excFA045_.tstart": {
+                    "name": "excFA045_.tstart",
+                    "script": "return 0",
+                    "sources": {
+                    },
+                    "type": "parameter_definition"
+                },
+                "excFA045_1": {
+                    "blueprint_id": "2a5c5aea-d0f0-478a-8ce6-d9bd05bbe453",
+                    "name": "excFA045_1",
+                    "type": "sequence_element_definition"
+                },
+                "excFA045_1.duration": {
+                    "name": "excFA045_1.duration",
+                    "script": "return 0.0071200000000000005",
+                    "sources": {
+                    },
+                    "type": "parameter_definition"
+                },
+                "excFA045_1.tstart": {
+                    "name": "excFA045_1.tstart",
+                    "script": "return 0.00752",
+                    "sources": {
+                    },
+                    "type": "parameter_definition"
+                },
+                "excFA090_": {
+                    "blueprint_id": "5ad1601b-84d5-424c-9485-e82a0afb7298",
+                    "name": "excFA090_",
+                    "type": "sequence_element_definition"
+                },
+                "excFA090_.duration": {
+                    "name": "excFA090_.duration",
+                    "script": "return 0.0071200000000000005",
+                    "sources": {
+                    },
+                    "type": "parameter_definition"
+                },
+                "excFA090_.tstart": {
+                    "name": "excFA090_.tstart",
+                    "script": "return 0.01504",
+                    "sources": {
+                    },
+                    "type": "parameter_definition"
+                },
+                "fov": {
+                    "name": "fov",
+                    "script": "return {200e-3, 200e-3, 200e-3}",
+                    "sources": {
+                    },
+                    "type": "parameter_definition"
+                },
+                "grad_0001_x": {
+                    "blueprint_id": "ae3e319f-e0a9-4748-91f3-7d2d91b28ce2",
+                    "name": "grad_0001_x",
+                    "type": "sequence_element_definition"
+                },
+                "grad_0001_x.duration": {
+                    "name": "grad_0001_x.duration",
+                    "script": "return 0.0002",
+                    "sources": {
+                    },
+                    "type": "parameter_definition"
+                },
+                "grad_0001_x.tstart": {
+                    "name": "grad_0001_x.tstart",
+                    "script": "return 0.014839999999999999",
+                    "sources": {
+                    },
+                    "type": "parameter_definition"
+                },
+                "grad_0001_y": {
+                    "blueprint_id": "6b088588-a84b-483f-a199-08422ed0548f",
+                    "name": "grad_0001_y",
+                    "type": "sequence_element_definition"
+                },
+                "grad_0001_y.duration": {
+                    "name": "grad_0001_y.duration",
+                    "script": "return 0.0002",
+                    "sources": {
+                    },
+                    "type": "parameter_definition"
+                },
+                "grad_0001_y.tstart": {
+                    "name": "grad_0001_y.tstart",
+                    "script": "return 0.014639999999999999",
+                    "sources": {
+                    },
+                    "type": "parameter_definition"
+                },
+                "grad_-001_x": {
+                    "blueprint_id": "45a2eb2e-b8b4-46cf-80c8-f91b823207c2",
+                    "name": "grad_-001_x",
+                    "type": "sequence_element_definition"
+                },
+                "grad_-001_x.duration": {
+                    "name": "grad_-001_x.duration",
+                    "script": "return 0.0002",
+                    "sources": {
+                    },
+                    "type": "parameter_definition"
+                },
+                "grad_-001_x.tstart": {
+                    "name": "grad_-001_x.tstart",
+                    "script": "return 0.00712",
+                    "sources": {
+                    },
+                    "type": "parameter_definition"
+                },
+                "grad_-001_x1": {
+                    "blueprint_id": "45a2eb2e-b8b4-46cf-80c8-f91b823207c2",
+                    "name": "grad_-001_x1",
+                    "type": "sequence_element_definition"
+                },
+                "grad_-001_x1.duration": {
+                    "name": "grad_-001_x1.duration",
+                    "script": "return 0.0002",
+                    "sources": {
+                    },
+                    "type": "parameter_definition"
+                },
+                "grad_-001_x1.tstart": {
+                    "name": "grad_-001_x1.tstart",
+                    "script": "return 0.007319999999999999",
+                    "sources": {
+                    },
+                    "type": "parameter_definition"
+                },
+                "info": {
+                    "blueprint_id": "Empty",
+                    "name": "info",
+                    "type": "sequence_element_definition"
+                },
+                "info.description": {
+                    "name": "info.description",
+                    "script": "return [[# Empty sequence\n]]",
+                    "sources": {
+                    },
+                    "type": "parameter_definition"
+                },
+                "mat_size": {
+                    "name": "mat_size",
+                    "script": "return {64, 64, 1}",
+                    "sources": {
+                    },
+                    "type": "parameter_definition"
+                },
+                "spoil_0002_xyz": {
+                    "blueprint_id": "cfaa37f2-3c34-4e3a-b097-9793c3af3928",
+                    "name": "spoil_0002_xyz",
+                    "type": "sequence_element_definition"
+                },
+                "spoil_0002_xyz.duration": {
+                    "name": "spoil_0002_xyz.duration",
+                    "script": "return 0.0008",
+                    "sources": {
+                    },
+                    "type": "parameter_definition"
+                },
+                "spoil_0002_xyz.tstart": {
+                    "name": "spoil_0002_xyz.tstart",
+                    "script": "return 0.02216",
+                    "sources": {
+                    },
+                    "type": "parameter_definition"
+                },
+                "tests": {
+                    "blueprint_id": "Tests",
+                    "name": "tests",
+                    "type": "sequence_element_definition"
+                },
+                "tstart": {
+                    "name": "tstart",
+                    "script": "return 0",
+                    "sources": {
+                    },
+                    "type": "parameter_definition"
+                }
+            },
+            "id": "3c049c21-dd53-4903-9c99-c31b514f65b5",
+            "name": "SPAMM2d1",
+            "properties": {
+                "tags": [
+                    "sequence",
+                    "teaching"
+                ]
+            }
+        }
+    }
+}

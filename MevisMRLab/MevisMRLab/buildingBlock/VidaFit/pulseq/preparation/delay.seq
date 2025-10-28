@@ -1,0 +1,25 @@
+# Pulseq sequence file
+# Created by PyPulseq
+# PARAMETERS_JSON_START
+# {
+#   "delay":    { "type": "int",   "default": 5000, "min": 0,"max": 1000000, "step": 10, "unit": "us", "pulseq_value": 5000, "pulseq_unit": "us", "description":"delay"  }
+# }
+# PARAMETERS_JSON_END
+
+[VERSION]
+major 1
+minor 4
+revision 2
+
+[DEFINITIONS]
+AdcRasterTime 1e-07 
+BlockDurationRaster 1e-05 
+GradientRasterTime 0.0001 
+RadiofrequencyRasterTime 1e-06 
+TotalDuration {(delay)*1e-6} 
+
+# Format of blocks:
+# NUM DUR RF  GX  GY  GZ  ADC  EXT
+[BLOCKS]
+1  {int((delay)/10)}   0   0   0   0  0  0
+

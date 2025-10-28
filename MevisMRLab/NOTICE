@@ -1,0 +1,30 @@
+NOTICE
+
+This software project is licensed under the GNU Affero General Public License version 3 (AGPLv3).
+
+Copyright (c) 2025 Fraunhofer MEVIS, Germany
+
+This software makes use of third-party components, each of which is provided under its own compatible open-source license. Full license texts for these components can be found in the directory:
+
+    third_party_licenses/
+
+This directory contains license files and, where applicable, additional notices from the respective copyright holders.
+
+Included third-party libraries (alphabetically):
+
+- MRZero Core – GNU Affero General Public License v3 (AGPLv3)
+- PyPulseq – GNU Affero General Public License v3 (AGPLv3)
+- PyQt – GNU General Public License v3 (GPLv3)
+- PyTorch - BSD 3-Clause License
+- pyvista - MIT License
+- pyvistaqt - MIT License
+- mpl-interactions – BSD 3-Clause License
+- numba - BSD 2-Clause "Simplified" License
+
+Please note: Use of this software and the included third-party components is subject to the terms and conditions of the respective licenses. By using this software, you agree to comply with those terms.
+
+---
+
+For more information on the main license of this project, please refer to the file:
+
+    LICENSE

@@ -1,0 +1,35 @@
+{
+	"filter": ["template"],
+	"general_tags": ["variable"],
+	"toolVisibility": {"BlochSim":true,
+						"Simulation":false,
+						"3DViewer":true},
+	"toolPreset": {"BlochSim": "standard",
+					"Simulation":"",
+					"Plot":"sim_ext.",
+					"3DViewer":"standard"},
+    "blocks": [
+    {
+      "name": "readout",
+      "id":   "epi2D_RO",
+      "properties": {
+        "parameter_units": "metric",
+        "param_desc": {},
+        "parameters": {},
+        "type": "readout",
+        "tags": ["lecture09"]
+      }
+    },    
+	{
+      "name": "full_EPI",
+      "id":   "epi_2D_seq",
+      "properties": {
+        "parameter_units": "metric",
+        "param_desc": {},
+        "parameters": {},
+        "type": "readout",
+        "tags": ["lecture09"]
+      }
+    }
+    ]
+}

@@ -1,0 +1,35 @@
+# Pulseq sequence file
+# Created by PyPulseq
+
+[VERSION]
+major 1
+minor 4
+revision 2
+
+[DEFINITIONS]
+AdcRasterTime 1e-07 
+BlockDurationRaster 1e-05 
+GradientRasterTime 0.0001 
+RadiofrequencyRasterTime 1e-06 
+TotalDuration 0.010199999999999999 
+
+# Format of blocks:
+# NUM DUR RF  GX  GY  GZ  ADC  EXT
+[BLOCKS]
+1  1020   0   1   2   3  1  0
+
+# Format of trapezoid gradients:
+# id amplitude rise flat fall delay
+# ..      Hz/m   us   us   us    us
+[TRAP]
+ 1 200000 100 10000 100   0
+ 2 0 100 10000 100   0
+ 3 0 100 10000 100   0
+
+
+# Format of ADC events:
+# id num dwell delay freq phase
+# ..  ..    ns    us   Hz   rad
+[ADC]
+1 64 156250 100 0 0
+
