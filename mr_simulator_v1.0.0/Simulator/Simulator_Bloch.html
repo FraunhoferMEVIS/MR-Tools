@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Bloch-Simulator</title>
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/x-icon" href="./web_logo.jpeg">
+    
+
+    <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    
+</head>
+
+<body>
+
+    <!-- Graph -->
+     <div class="allCharts">
+        <div id="Mx/Mxy" class="singleCharts"></div>
+        <div id="RF_Pulse" class="singleCharts"></div>
+     </div>
+    
+    
+
+    <!--  Buttons  -->
+    <div class="buttons">
+        <button class="single_button" type="button" id="_90Degree">90° Pulse</button>
+        
+        <button class="single_button" type="button" id="_30Degree">30° Pulse</button>
+        
+        <button class="single_button" type="button" id="_180Degree">180° Pulse</button>
+
+        <button class="single_button" type="button" id="Equilibrium">Equilibrium</button>  
+    </div>
+    
+
+    <!-- Mode selection  -->
+    <div class="dropdown" id="dropdownValue">
+
+        <div class="select">
+            <select>
+                <option value="4">Demo</option>
+                <option value="2">Single Atom</option>
+                <option value="3">Multiple Atoms</option>
+            </select>
+        </div>
+        
+    </div>
+
+
+    <div class="file-browser">
+        <button class="file-browser-btn" id="openFileBrowser">📁 Ordner öffnen</button>
+        <input type="file" id="fileInput" class="file-input" webkitdirectory multiple>
+        
+        <div class="file-window" id="fileWindow">
+            <div class="file-window-header">
+                <span id="folderName">Dateien</span>
+                <button class="file-window-close" id="closeFileWindow">×</button>
+            </div>
+            <div class="file-list" id="fileList">
+                <div class="no-files">Keine Dateien ausgewählt</div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+    <script type="module">
+        import { Events } from "./js/graph.js";
+       
+
+        //Button functions
+        function _90Degree_(){
+            const _90Degreehard_ = Events("button", 90, 1)
+            return _90Degreehard_
+        }
+        
+
+        function _30Degree_(){
+            const _30Degreehard_ = Events("button", 30, 1)
+            return _30Degreehard_
+        }
+        
+
+        function _180Degree_(){
+            const _180Degree_ = Events("button", 180, 1)
+            return _180Degree_
+        }
+
+        function _Equilibrium_(){
+            const Equilibrium_ = Events("button", 0, 0)
+            return Equilibrium_
+        }
+
+        let selectModeValue = 4;
+        function selectMode_(){
+            Events("button", 0, Number(selectModeValue));
+
+        }
+        selectMode_();
+
+        const button_90Gegree_ = document.getElementById('_90Degree');
+        button_90Gegree_.addEventListener('click', _90Degree_);
+
+        const button_30Degree_ = document.getElementById('_30Degree');
+        button_30Degree_.addEventListener('click', _30Degree_);
+
+        const button_180Degree = document.getElementById('_180Degree');
+        button_180Degree.addEventListener('click', _180Degree_);
+
+        const button_Equilibrium = document.getElementById('Equilibrium');
+        button_Equilibrium.addEventListener('click', _Equilibrium_);
+
+        const selectMode = document.getElementById('dropdownValue');
+        selectMode.addEventListener('change', (e) => {
+            selectModeValue = e.target.options[e.target.selectedIndex].value;
+            selectMode_();
+        });
+
+
+        //File functions
+        const openFileBrowserBtn = document.getElementById('openFileBrowser');
+        const fileInput = document.getElementById('fileInput');
+        const fileWindow = document.getElementById('fileWindow');
+        const closeFileWindowBtn = document.getElementById('closeFileWindow');
+        const fileList = document.getElementById('fileList');
+        const folderName = document.getElementById('folderName');
+
+        openFileBrowserBtn.addEventListener('click', () => {
+            fileInput.click();
+        });
+
+        fileInput.addEventListener('change', (event) => {
+            const files = Array.from(event.target.files);
+            displayFiles(files);
+        });
+
+        closeFileWindowBtn.addEventListener('click', () => {
+            fileWindow.style.display = 'none';
+            
+        });
+
+        function displayFiles(files) {
+            if (files.length === 0) {
+                fileList.innerHTML = '<div class="no-files">Keinen Ordner ausgewählt</div>';
+                return;
+            }
+
+            // Get folder name from first file
+            const firstFile = files[0];
+            const pathParts = firstFile.webkitRelativePath.split('/');
+            folderName.textContent = pathParts[0] || 'Dateien';
+
+            // Sort files by name
+            files.sort((a, b) => a.name.localeCompare(b.name));
+
+            fileList.innerHTML = '';
+            
+            files.forEach(file => {
+                const fileItem = document.createElement('div');
+                fileItem.className = 'file-item';
+                
+                const fileSize = formatFileSize(file.size);
+                
+                fileItem.innerHTML = `
+                    <span class="file-name" title="${file.name}">${file.name}</span>
+                    <span class="file-size">${fileSize}</span>
+                `;
+                
+                fileItem.addEventListener('click', () => {
+                    console.log('File selected:', file.name);
+                    //further file activity
+                    console.log("Into graph file");
+                    Events("file_reader", 0, 0, file);
+                });
+                
+                fileList.appendChild(fileItem);
+            });
+
+            fileWindow.style.display = 'block';
+        }
+
+        function formatFileSize(bytes) {
+            if (bytes === 0) return '0 B';
+            const k = 1024;
+            const sizes = ['B', 'KB', 'MB', 'GB'];
+            const i = Math.floor(Math.log(bytes) / Math.log(k));
+            return parseFloat((bytes / Math.pow(k, i)).toFixed(1)) + ' ' + sizes[i];
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            document.querySelector('.file-browser').style.display = 'block';
+        });
+    </script>
+    
+    
+   
+
+
+</body> 
+</html>

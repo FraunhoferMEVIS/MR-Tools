@@ -1,0 +1,27 @@
+{
+  "name": "workspace_simulator",
+  "version": "1.0.0",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "buffer": "^6.0.3",
+    "dat.gui": "^0.7.9",
+    "parcel": "^2.16.0"
+  },
+  "dependencies": {
+    "@parcel/core": "^2.16.0",
+    "canvasjs": "^1.8.3",
+    "mathjs": "^15.0.0",
+    "stats.js": "^0.17.0",
+    "three": "^0.180.0",
+    "three-csg-ts": "^3.2.0"
+  }
+}

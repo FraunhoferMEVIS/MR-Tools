@@ -1,0 +1,274 @@
+body {
+    margin: 0;
+}
+
+.singleCharts {
+    gap: 10.5px;
+    height: 250px;
+    width: 550px;
+}
+
+/* .singleCharts {
+   height: 400px !important;
+   width: 500px !important;
+} */
+
+.allCharts {
+    position: absolute;
+
+}
+
+.buttons {
+    display: flex;
+    background-color: rgba(0, 0, 0, 0.5);  
+    justify-content: center;  
+    align-items: center;
+    gap: 2.5px;  
+    position: absolute;
+    bottom: 5vh;
+    right: 5vw;
+    width: 10%;  
+    /* height: 10%;   */
+    border-radius: 0.5rem;
+    border: 2px solid rgb(24, 113, 165);  
+    box-sizing: border-box;
+    flex-wrap: wrap;  
+}
+
+.single_button{
+    text-wrap: wrap;
+    padding: 7.5px;
+    margin: 7.5px;
+    min-width: 35%;
+    height: 50%;
+    border-radius: 0.5rem;
+    border: 1px solid rgb(60, 60, 60);
+    transition: transform 0.1s;
+    box-shadow: 2px 2px 1px black;
+    cursor: pointer; 
+}
+
+.single_button:hover {
+    background-color: rgb(180, 180, 180);
+    transform: translate(0px, 1px);
+
+}
+
+.single_button:active {
+    transform: translate(0px, 2px);
+}
+
+#Equilibrium {
+    background-color: rgb(180, 0, 0);
+    color: white;
+    border: 1px solid rgb(255, 255, 255);
+}
+
+
+.dropdown {
+    position: absolute;
+    bottom: 5vh;
+    left: 3vw;
+    z-index: 100;
+}
+
+
+
+
+
+
+
+select {
+    /* Reset Select */
+    appearance: none;
+    outline: 10px #3f74b1;
+    border: 1;
+    box-shadow: none;
+
+    /* Personalize */
+    flex: 1;
+    padding: 0 1em;
+    color: black;
+    background-color: white;
+    background-image: none;
+    cursor: pointer;
+    
+  }
+  /* Remove IE arrow */
+  select::-ms-expand {
+    display: none;
+  }
+  /* Custom Select wrapper */
+  .select {
+    position: relative;
+    display: flex;
+    width: 13em;
+    height: 2.5em;
+    border-radius: 0.5rem;
+    overflow: hidden;
+    box-shadow: 1px 1px 1px black;
+
+    
+  }
+  /* Arrow */
+  .select::after {
+    content: '\25BC';
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 0.75em;
+    background-color: white;
+    transition: .25s all ease;
+    pointer-events: none;
+  }
+  /* Transition */
+  .select:hover::after {
+    color: #3f74b1;
+  }
+
+
+
+
+.file-browser {
+    position: absolute;
+    bottom: 5.5vh;
+    right: 18vw;
+    display: none;
+}
+
+.file-browser-btn {
+    background: rgba(0, 0, 0, 0.6);
+    color: white;
+    border: 1px solid rgb(24, 113, 165);
+    border-radius: 0.5rem;
+    padding: 8px 16px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: all 0.2s ease;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    display: none; 
+    /* deactivated in v1 */
+}
+
+.file-browser-btn:hover {
+    background: rgba(24, 113, 165, 0.8);
+    transform: translateY(-1px);
+}
+
+.file-input {
+    display: none;
+}
+
+.file-window {
+    position: absolute;
+    top: -25vh;
+    right: 0vw;
+    width: 320px;
+    max-height: 190px;
+    background: rgba(20, 20, 20, 0.95);
+    border: 1px solid rgb(24, 113, 165);
+    border-radius: 8px;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+    display: none;
+    overflow: hidden;
+}
+
+.file-window-header {
+    background: linear-gradient(135deg, rgb(24, 113, 165), rgb(60, 140, 200));
+    color: white;
+    padding: 12px 16px;
+    font-size: 14px;
+    font-weight: 500;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.file-window-close {
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+    font-size: 16px;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.2s ease;
+}
+
+.file-window-close:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.file-list {
+    max-height: 180px;
+    overflow-y: auto;
+    padding: 8px 0;
+}
+
+.file-item {
+    padding: 8px 16px;
+    color: #e0e0e0;
+    font-size: 13px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: background 0.2s ease;
+}
+
+.file-item:hover {
+    background: rgba(24, 113, 165, 0.3);
+}
+
+.file-item:last-child {
+    border-bottom: none;
+}
+
+.file-icon {
+    width: 16px;
+    height: 16px;
+    opacity: 0.7;
+}
+
+.file-name {
+    flex: 1;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.file-size {
+    font-size: 11px;
+    color: #999;
+}
+
+/* Custom scrollbar */
+.file-list::-webkit-scrollbar {
+    width: 6px;
+}
+
+.file-list::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.file-list::-webkit-scrollbar-thumb {
+    background: rgba(24, 113, 165, 0.6);
+    border-radius: 3px;
+}
+
+.file-list::-webkit-scrollbar-thumb:hover {
+    background: rgba(24, 113, 165, 0.8);
+}
+
+.no-files {
+    padding: 24px 16px;
+    text-align: center;
+    color: #999;
+    font-size: 13px;
+}
+
