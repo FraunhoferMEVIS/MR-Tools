@@ -1,0 +1,50 @@
+NOTICE
+
+This software project is licensed under MIT
+
+Copyright (c) 2026 Fraunhofer MEVIS, Germany
+
+This software makes use of third-party components, each of which is provided under its own compatible open-source license. Full license texts for these components can be found in the directory:
+
+    third_party_licenses/
+
+This directory contains license files and, where applicable, additional notices from the respective copyright holders.
+
+Included third-party libraries:
+
+-----------------------------------------------------------------------------
+1. Streamlit
+   License:   Apache License 2.0
+   Source:    https://github.com/streamlit/streamlit
+   Copyright: 2019 Streamlit Inc.
+
+-----------------------------------------------------------------------------
+2. NumPy
+   License:   BSD-3-Clause
+   Source:    https://github.com/numpy/numpy
+   Copyright: 2005-2025, NumPy Developers.
+
+-----------------------------------------------------------------------------
+3. Matplotlib
+   License:   Matplotlib License (PSF-based)
+   Source:    https://github.com/matplotlib/matplotlib
+   Copyright: 2002–2024 John D. Hunter, Michael Droettboom et al.
+   Full license: https://matplotlib.org/stable/users/project/license.html
+   
+-----------------------------------------------------------------------------
+4. Pyarrow
+   License:   Apache 2.0
+   Source:    https://pypi.org/project/pyarrow/
+   Copyright: Apache Arrow Developers
+   Full license: https://www.apache.org/licenses/LICENSE-2.0.txt
+   
+-----------------------------------------------------------------------------
+        
+
+Please note: Use of this software and the included third-party components is subject to the terms and conditions of the respective licenses. By using this software, you agree to comply with those terms.
+
+---
+
+For more information on the main license of this project, please refer to the file:
+
+    LICENSE
