@@ -1,0 +1,87 @@
+NOTICE
+
+This software project is licensed under MIT 
+
+Copyright (c) 2026 Fraunhofer MEVIS, Germany
+
+This software makes use of third-party components, each of which is provided under its own compatible open-source license. Full license texts for these components can be found in the directory:
+
+    third_party_licenses/
+
+This directory contains license files and, where applicable, additional notices from the respective copyright holders.
+
+Included third-party libraries:
+
+-----------------------------------------------------------------------------
+1. Streamlit
+   License:   Apache License 2.0
+   Source:    https://github.com/streamlit/streamlit
+   Copyright: 2019 Streamlit Inc.
+
+-----------------------------------------------------------------------------
+2. NumPy
+   License:   BSD-3-Clause
+   Source:    https://github.com/numpy/numpy
+   Copyright: 2005-2025, NumPy Developers.
+
+-----------------------------------------------------------------------------
+3. Matplotlib
+   License:   Matplotlib License (PSF-based)
+   Source:    https://github.com/matplotlib/matplotlib
+   Copyright: 2002–2024 John D. Hunter, Michael Droettboom et al.
+   Full license: https://matplotlib.org/stable/users/project/license.html
+
+-----------------------------------------------------------------------------
+4. IPython
+   License:   BSD-3-Clause
+   Source:    https://github.com/ipython/ipython
+   Copyright: 2008- The IPython Development Team
+
+-----------------------------------------------------------------------------
+5. OpenCV (opencv-python)
+   License:   Apache License 2.0
+   Source:    https://github.com/opencv/opencv
+   Copyright (C) 2000-2022, Intel Corporation, all rights reserved.
+   Copyright (C) 2009-2011, Willow Garage Inc., all rights reserved.
+   Copyright (C) 2009-2016, NVIDIA Corporation, all rights reserved.
+   Copyright (C) 2010-2013, Advanced Micro Devices, Inc., all rights reserved.
+   Copyright (C) 2015-2023, OpenCV Foundation, all rights reserved.
+   Copyright (C) 2008-2016, Itseez Inc., all rights reserved.
+   Copyright (C) 2019-2023, Xperience AI, all rights reserved.
+   Copyright (C) 2019-2022, Shenzhen Institute of Artificial Intelligence and Robotics for Society, all rights reserved.
+   Copyright (C) 2022-2023, Southern University of Science And Technology, all rights reserved.
+   Copyright (C) 2023-2025, OpenCV AI, all rights reserved.
+
+-----------------------------------------------------------------------------
+6. PyWavelets
+   License:   MIT License
+   Source:    https://github.com/PyWavelets/pywt
+   Copyright (c) 2006-2012 Filip Wasilewski <http://en.ig.ma/>
+   Copyright (c) 2012-     The PyWavelets Developers <https://github.com/PyWavelets/pywt>
+
+-----------------------------------------------------------------------------
+7. pydicom
+   License:   MIT License
+   Source:    https://github.com/pydicom/pydicom
+   Copyright: 2008-2020 Darcy Mason and pydicom contributors
+
+-----------------------------------------------------------------------------
+8. scikit-learn
+   License:   BSD-3-Clause
+   Source:    https://github.com/scikit-learn/scikit-learn
+   Copyright: 2007-2026 The scikit-learn developers.
+
+-----------------------------------------------------------------------------
+9. scikit-image
+   License:   BSD-3-Clause
+   Source:    https://github.com/scikit-image/scikit-image
+   Copyright: 2009-2022 The scikit-image team
+                                                              
+
+Please note: Use of this software and the included third-party components is subject to the terms and conditions of the respective licenses. By using this software, you agree to comply with those terms.
+
+---
+
+For more information on the main license of this project, please refer to the file:
+
+    LICENSE
